@@ -15,4 +15,13 @@ Cypress.Commands.add('login', (
   
     login()
   })
+
+  Cypress.Commands.add('logout', () => {
+    const logout = () => {
+        cy.get('.header-user-avatar').click()
+        cy.get('.sign-out-link').click()
+    }
+
+    logout()
+  })
   
