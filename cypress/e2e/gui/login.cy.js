@@ -1,7 +1,5 @@
-describe('Página GitLab', () => {
-  beforeEach(function() {
-    cy.visit('http://localhost/users/sign_in')
-  })
+describe('login GitLab', () => {
+ 
   it('fazer login inserindo usuário e senha', () => {
     cy.login()
 
