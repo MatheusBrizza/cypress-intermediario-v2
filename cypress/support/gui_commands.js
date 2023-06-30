@@ -16,12 +16,25 @@ Cypress.Commands.add('login', (
     login()
   })
 
-  Cypress.Commands.add('logout', () => {
+Cypress.Commands.add('logout', () => {
     const logout = () => {
         cy.get('.header-user-avatar').click()
         cy.get('.sign-out-link').click()
     }
 
     logout()
+  })
+
+Cypress.Commands.add('criarProjeto', (
+    teste = 'teste'
+    ) => {
+    const createProject = () => {
+        cy.contains('Create a project').click()
+        cy.get('#project_name').type(teste)
+        cy.get('#project_path').type(teste)
+        cy.get('#blank-project-pane > #new_project > .btn-success').click()
+    }
+
+    createProject()
   })
   
