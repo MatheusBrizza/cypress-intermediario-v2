@@ -25,16 +25,12 @@ Cypress.Commands.add('logout', () => {
     logout()
   })
 
-Cypress.Commands.add('criarProjeto', (
-    teste = 'teste'
-    ) => {
-    const createProject = () => {
-        cy.contains('Create a project').click()
-        cy.get('#project_name').type(teste)
-        cy.get('#project_path').type(teste)
-        cy.get('#blank-project-pane > #new_project > .btn-success').click()
-    }
+Cypress.Commands.add('gui_criarProjeto', projeto => {
+        cy.visit('/projects/new')
 
-    createProject()
-  })
+        cy.get('#project_name').type(projeto.name)
+        cy.get('#project_description').type(projeto.description)
+        cy.get('.qa-initialize-with-readme-checkbox').check()
+        cy.contains('Create project').click()
+    })
   
