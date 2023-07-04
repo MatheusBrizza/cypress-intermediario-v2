@@ -15,19 +15,19 @@ Cypress.Commands.add('login', (
     
     }
 
-    const validarSessao = () => {
+    const validate = () => {
       cy.visit('/')
       cy.location('pathname', { timeout: 1000 })
         .should('not.eq', '/users/sign_in')
     }
 
-    const opcoes = {
+    const options = {
       cacheAcrossSpecs: true,
-      validarSessao,
+      validate,
     }
   
     if (cacheSession) {
-      cy.session(user, login, opcoes)
+      cy.session(user, login, options)
     } else {
       login()
     }
