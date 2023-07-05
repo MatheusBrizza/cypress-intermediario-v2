@@ -39,7 +39,7 @@ Cypress.Commands.add('logout', () => {
         cy.get('.header-user-avatar').click()
         cy.get('.sign-out-link').click()
     }
-
+''
     logout()
   })
 
@@ -51,4 +51,12 @@ Cypress.Commands.add('gui_criarProjeto', projeto => {
         cy.get('.qa-initialize-with-readme-checkbox').check()
         cy.contains('Create project').click()
     })
-  
+
+Cypress.Commands.add('gui_criarIssue', issue => {
+
+  cy.get('.shortcuts-issues').click()
+  cy.get('#new_issue_link').click()
+  cy.get('#issue_title').type(issue.title)
+  cy.get('#issue_description').type(issue.description)
+  cy.contains('Submit issue').click()
+})
