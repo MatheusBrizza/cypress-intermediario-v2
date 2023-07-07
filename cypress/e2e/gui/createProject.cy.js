@@ -1,6 +1,8 @@
 import { faker } from '@faker-js/faker'
 
-describe('Criar projeto no GitLab', () => {
+const options = { env: { snapshotOnly: true } }
+
+describe('Criar projeto no GitLab', options, () => {
     beforeEach(function() {
       cy.login()
     })
