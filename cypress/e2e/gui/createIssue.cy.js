@@ -12,19 +12,19 @@ describe('Criar Issue em um projeto', options, () => {
         }
     }
 
-    beforeEach(function() {
-      cy.login()
-      cy.visit('/')
-    
-      cy.api_deleteProjects()
-      cy.api_criarProjeto(issue.projeto)
+    beforeEach(function () {
+        cy.login()
+        cy.visit('/')
+
+        cy.api_deleteProjects()
+        cy.api_criarProjeto(issue.projeto)
     })
 
-    
-    it('criar Issue em um projeto novo', () => {
-    
-          cy.gui_criarIssue(issue)
 
-          cy.get('.issue-details').should('contain', issue.title)
+    it('criar Issue em um projeto novo', () => {
+
+        cy.gui_criarIssue(issue)
+
+        cy.get('.issue-details').should('contain', issue.title)
     })
 })    
