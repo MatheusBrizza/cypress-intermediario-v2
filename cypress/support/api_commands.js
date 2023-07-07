@@ -1,6 +1,6 @@
 const accessToken = `Bearer ${Cypress.env('gitlab_access_token')}`
 
-Cypress.Commands.add('api_createProject', project => {
+Cypress.Commands.add('api_criarProjeto', project => {
   cy.request({
     method: 'POST',
     url: `/api/v4/projects/`,

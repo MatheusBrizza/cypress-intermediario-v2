@@ -53,7 +53,8 @@ Cypress.Commands.add('gui_criarProjeto', projeto => {
     })
 
 Cypress.Commands.add('gui_criarIssue', issue => {
-
+  cy.visit(`/${Cypress.env('user_name')}/${issue.projeto.name}/issues/new`)
+  
   cy.get('.shortcuts-issues').click()
   cy.get('#new_issue_link').click()
   cy.get('#issue_title').type(issue.title)

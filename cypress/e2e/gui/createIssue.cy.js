@@ -10,12 +10,12 @@ describe('Criar Issue em um projeto', () => {
         }
     }
 
-
     beforeEach(function() {
       cy.login()
       cy.visit('/')
-
-      cy.gui_criarProjeto(issue.projeto)
+    
+      cy.api_deleteProjects()
+      cy.api_criarProjeto(issue.projeto)
     })
 
     

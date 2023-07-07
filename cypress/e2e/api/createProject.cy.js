@@ -6,16 +6,16 @@ describe('Create Project', () => {
       })
 
   it('successfully', () => {
-    const project = {
+    const projeto = {
       name: `project-${faker.datatype.uuid()}`,
       description: faker.random.words(5)
     }
 
-    cy.api_createProject(project)
+    cy.api_criarProjeto(projeto)
       .then(response => {
         expect(response.status).to.equal(201)
-        expect(response.body.name).to.equal(project.name)
-        expect(response.body.description).to.equal(project.description)
+        expect(response.body.name).to.equal(projeto.name)
+        expect(response.body.description).to.equal(projeto.description)
       })
   })
 })
