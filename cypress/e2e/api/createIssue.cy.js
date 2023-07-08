@@ -9,13 +9,13 @@ describe('Creando issue por API', () => {
         const issue = {
             title: `issue-${faker.datatype.uuid()}`,
             description: faker.random.words(3),
-            project: {
+            projeto: {
                 name: `project-${faker.datatype.uuid()}`,
                 description: faker.random.words(5)
             }
         }
 
-        cy.api_createIssue(issue)
+        cy.api_criarIssue(issue)
             .then(response => {
                 expect(response.status).to.equal(201)
                 expect(response.body.title).to.equal(issue.title)
